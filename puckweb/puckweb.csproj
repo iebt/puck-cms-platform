@@ -38,13 +38,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
-    <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.2.22" />
+    <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.3.8" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4" />
-    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0008" />
-    <PackageReference Include="SixLabors.ImageSharp.Web" Version="1.0.4" />
-    <PackageReference Include="SixLabors.ImageSharp.Web.Providers.Azure" Version="1.0.4" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.7" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.5" />
+    <PackageReference Include="SixLabors.ImageSharp.Web" Version="3.1.4" />
+    <PackageReference Include="SixLabors.ImageSharp.Web.Providers.Azure" Version="3.1.4" />
   </ItemGroup>
 
   <Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
