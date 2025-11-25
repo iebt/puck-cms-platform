@@ -1,0 +1,14 @@
+|25/11/2025 10:49:05
+|error
+|Exception
+|domain root not set, likely because there is no content. DOMAIN:localhost - visit the backoffice to set up your site
+|   at puck.core.Controllers.BaseController.Puck(String path, String variant) in /Users/daymannovaes/workspace/iebt/rendimento/puck-cms-platform/core/Controllers/BaseController.cs:line 61
+
+
+|25/11/2025 10:49:07
+|error
+|Exception
+|domain root not set, likely because there is no content. DOMAIN:localhost - visit the backoffice to set up your site
+|   at puck.core.Controllers.BaseController.Puck(String path, String variant) in /Users/daymannovaes/workspace/iebt/rendimento/puck-cms-platform/core/Controllers/BaseController.cs:line 61
+
+
