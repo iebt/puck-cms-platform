@@ -73,6 +73,7 @@ namespace puckweb
                 var env = provider.GetRequiredService<Microsoft.AspNetCore.Hosting.IWebHostEnvironment>();
                 env.WebRootFileProvider = new PhysicalFileProvider(env.WebRootPath);
                 var p = new PhysicalFileSystemProvider(
+                    provider.GetRequiredService<IOptions<PhysicalFileSystemProviderOptions>>(),
                     env,
                     provider.GetRequiredService<FormatUtilities>())
                 {
@@ -110,10 +111,8 @@ namespace puckweb
                         return new PhysicalFileSystemCache(
                             provider.GetRequiredService<IOptions<PhysicalFileSystemCacheOptions>>(),
                             provider.GetRequiredService<Microsoft.AspNetCore.Hosting.IWebHostEnvironment>(),
-                            provider.GetRequiredService<IOptions<ImageSharpMiddlewareOptions>>(),
                             provider.GetRequiredService<FormatUtilities>());
                     })
-                    .SetCacheHash<CacheHash>()
                     .ClearProviders()
                     .AddProvider(AzureProviderFactory)
                     .Configure<AzureBlobStorageImageProviderOptions>(options =>
@@ -139,10 +138,8 @@ namespace puckweb
                         return new PhysicalFileSystemCache(
                             provider.GetRequiredService<IOptions<PhysicalFileSystemCacheOptions>>(),
                             provider.GetRequiredService<Microsoft.AspNetCore.Hosting.IWebHostEnvironment>(),
-                            provider.GetRequiredService<IOptions<ImageSharpMiddlewareOptions>>(),
                             provider.GetRequiredService<FormatUtilities>());
                     })
-                    .SetCacheHash<CacheHash>()
                     .AddProvider(PhysicalProviderFactory)
                     .AddProcessor<ResizeWebProcessor>()
                     .AddProcessor<CropWebProcessor>()

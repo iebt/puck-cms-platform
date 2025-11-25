@@ -34,14 +34,15 @@ namespace puck.core.ImageSharp.WebProcessors
         public IEnumerable<string> Commands { get; } = ResizeCommands;
 
         /// <inheritdoc/>
-        public FormattedImage Process(FormattedImage image, ILogger logger, IDictionary<string, string> commands,CommandParser commandParser,CultureInfo ci)
+        public FormattedImage Process(FormattedImage image, ILogger logger, CommandCollection commands, CommandParser commandParser, CultureInfo ci)
         {
-            if (commands.ContainsKey(Crop))
+            var cropValue = commands.GetValueOrDefault(Crop);
+            if (!string.IsNullOrEmpty(cropValue))
             {
-                var cropProportions = commands[Crop].Split(new char[] { ','});
+                var cropProportions = cropValue.Split(new char[] { ',' });
                 if (cropProportions.Length != 4)
                     return image;
-                float left,top,right,bottom;
+                float left, top, right, bottom;
                 if (!float.TryParse(cropProportions[0], out left)
                     || !float.TryParse(cropProportions[1], out top)
                     || !float.TryParse(cropProportions[2], out right)
@@ -55,6 +56,13 @@ namespace puck.core.ImageSharp.WebProcessors
                 image.Image.Mutate(m => m.Crop(rect));
             }
             return image;
+        }
+
+        /// <inheritdoc/>
+        public bool RequiresTrueColorPixelFormat(CommandCollection commands, CommandParser commandParser, CultureInfo culture)
+        {
+            // Cropping doesn't require alpha channel support
+            return false;
         }
     }
 }
