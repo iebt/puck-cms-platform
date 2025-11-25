@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <PackageId>PuckCMS_AzureDirectory</PackageId>
     <Company>azure-contrib</Company>
     <Description>https://github.com/azure-contrib/AzureDirectory/</Description>
